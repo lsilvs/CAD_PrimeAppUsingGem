@@ -61,6 +61,13 @@ class PrimesController < ApplicationController
     end
   end
 
+
+  def isprime
+    @input1 = params[:search_string]
+    @result = Checkprime.runcheck(@input1.to_i)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prime
@@ -71,4 +78,6 @@ class PrimesController < ApplicationController
     def prime_params
       params.require(:prime).permit(:primenum)
     end
+
+
 end
